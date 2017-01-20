@@ -12,12 +12,27 @@ import dagger.Component;
  * 初始化类实例的方法
  * Created by niuxiaowei on 16/3/20.
  */
+
+/**
+ * 这里使用了三个组织Component的方式：
+ * 1. 依赖方式， 使用 dependencies
+ * 2. 包含方式
+ * 3. 继承方式
+ */
 @PerActivity
-@Component(dependencies = AppComponent.class,modules = {MainModule.class, ActivityModule.class})
-public interface MainComponent extends ActivityComponent{
-    //对MainActivity进行依赖注入
+@Component(dependencies = AppComponent.class, modules = {MainModule.class, ActivityModule.class})
+public interface MainComponent extends ActivityComponent {
+    /*
+     * 通过 inject 方法将 MainComponent 管理的类实例注入到 MainActivity 中来
+     * 即 MainComponent 将 MainActivity 与 MainActivity依赖的类实例关联起来了
+     */
     void inject(MainActivity mainActivity);
 
 
+    /*
+     * MainComponent 包含 MainFragmentComponent，所以 MainFragmentComponent 使用了 @Subcomponent 注解
+     * 这就相当于是 Activity 与 Fragment 的关系
+     * 这说明 MainActivity 还依赖 MainFragmentComponent 管理的实例
+     */
     MainFragmentComponent mainFragmentComponent();
 }

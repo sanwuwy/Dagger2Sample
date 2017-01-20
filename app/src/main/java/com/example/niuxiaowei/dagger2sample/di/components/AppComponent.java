@@ -13,6 +13,12 @@ import javax.inject.Singleton;
 /**
  * Created by niuxiaowei on 16/3/19.
  */
+
+/**
+ * 由于这里 AppComponent 使用了 @Singleton 注解标注其生命周期，
+ * 所以对应的 AppModule.class 中创建实例的方法也必须标注为 @Singleton
+ * 保持关联的 Component 和 Module 之间的 Scope 是一样的
+ */
 @Singleton
 @Component(modules={AppModule.class})
 public interface AppComponent {
