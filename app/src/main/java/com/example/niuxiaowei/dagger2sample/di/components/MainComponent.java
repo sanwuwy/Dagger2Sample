@@ -16,8 +16,8 @@ import dagger.Component;
 /**
  * 这里使用了三个组织Component的方式：
  * 1. 依赖方式， 使用 dependencies
- * 2. 包含方式
- * 3. 继承方式
+ * 2. 包含方式，如MainFragmentComponent
+ * 3. 继承方式，如ActivityComponent
  */
 @PerActivity
 @Component(dependencies = AppComponent.class, modules = {MainModule.class, ActivityModule.class})

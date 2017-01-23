@@ -17,7 +17,7 @@ import com.example.niuxiaowei.dagger2sample.presenter.MainPresenter;
 
 import javax.inject.Inject;
 
-public class MainFragment extends BaseFragment implements MainPresenter.IUserView{
+public class MainFragment extends BaseFragment implements MainPresenter.IUserView {
     // TODO: Rename parameter arguments, choose names that match
 
     @Inject
@@ -32,7 +32,7 @@ public class MainFragment extends BaseFragment implements MainPresenter.IUserVie
 
     private OnFragmentInteractionListener mListener;
 
-    public MainFragment(){
+    public MainFragment() {
 
     }
 
@@ -60,8 +60,8 @@ public class MainFragment extends BaseFragment implements MainPresenter.IUserVie
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if(getActivity() instanceof MainActivity){
-            mainFragmentComponent = ((MainActivity)getActivity() ).getMainComponent().mainFragmentComponent();
+        if (getActivity() instanceof MainActivity) {
+            mainFragmentComponent = ((MainActivity) getActivity()).getMainComponent().mainFragmentComponent();
             mainFragmentComponent.inject(this);
             mainPresenter.setUserView(this);
         }
@@ -91,7 +91,6 @@ public class MainFragment extends BaseFragment implements MainPresenter.IUserVie
     }
 
 
-
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -110,7 +109,6 @@ public class MainFragment extends BaseFragment implements MainPresenter.IUserVie
         }
 
 
-
     }
 
     @Override
@@ -121,7 +119,7 @@ public class MainFragment extends BaseFragment implements MainPresenter.IUserVie
 
     @Override
     public void setUserName(String name) {
-        ((TextView)getView().findViewById(R.id.user_info)).setText(name);
+        ((TextView) getView().findViewById(R.id.user_info)).setText(name);
     }
 
     /**
